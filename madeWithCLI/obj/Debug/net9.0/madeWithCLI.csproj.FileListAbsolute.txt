@@ -1,0 +1,15 @@
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/bin/Debug/net9.0/madeWithCLI
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/bin/Debug/net9.0/madeWithCLI.deps.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/bin/Debug/net9.0/madeWithCLI.runtimeconfig.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/bin/Debug/net9.0/madeWithCLI.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/bin/Debug/net9.0/madeWithCLI.pdb
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.AssemblyInfoInputs.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.AssemblyInfo.cs
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.csproj.CoreCompileInputs.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.sourcelink.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/refint/madeWithCLI.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.pdb
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/madeWithCLI.genruntimeconfig.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/madeWithCLI/obj/Debug/net9.0/ref/madeWithCLI.dll
