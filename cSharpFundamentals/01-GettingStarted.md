@@ -1,3 +1,5 @@
+# C# Fundamentals
+
 ## The .NET Ecosystem
 
 - Languages
@@ -10,7 +12,7 @@
 
 C#13 && .NET9
 
-# CLI
+## CLI
 
 - dotnet new console -n "programName"
 - dotnet build
