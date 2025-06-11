@@ -47,7 +47,11 @@ public void setTimer(chosenTime, isValid) {
 - Optional parametrs
   - default values for args in a function
 - Named arguments
+
   - like why?
 
 - Expression-bodied syntax
-  -
+
+### Main method
+
+- Top Level Statements >= dotNet9
