@@ -19,10 +19,6 @@ oOOoo pointers and linked lists
     int[] employddIds = new int [] {1, 2, 3, 4, 5};
     ```
 
-  ```
-
-  ```
-
 - Determining the Array Size at Runtime
 
   - ```c#
@@ -30,10 +26,6 @@ oOOoo pointers and linked lists
 
     int[] employeeIds = new int[size];
     ```
-
-  ```
-
-  ```
 
 ### Collections
 
