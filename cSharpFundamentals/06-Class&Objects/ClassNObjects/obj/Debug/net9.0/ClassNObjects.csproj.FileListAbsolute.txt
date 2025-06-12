@@ -1,0 +1,15 @@
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/bin/Debug/net9.0/ClassNObjects
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/bin/Debug/net9.0/ClassNObjects.deps.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/bin/Debug/net9.0/ClassNObjects.runtimeconfig.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/bin/Debug/net9.0/ClassNObjects.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/bin/Debug/net9.0/ClassNObjects.pdb
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.GeneratedMSBuildEditorConfig.editorconfig
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.AssemblyInfoInputs.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.AssemblyInfo.cs
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.csproj.CoreCompileInputs.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.sourcelink.json
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/refint/ClassNObjects.dll
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.pdb
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ClassNObjects.genruntimeconfig.cache
+/Users/junelee/2025-Q2-projects/cSharpCourse/cSharpFundamentals/06-Class&Objects/ClassNObjects/obj/Debug/net9.0/ref/ClassNObjects.dll
