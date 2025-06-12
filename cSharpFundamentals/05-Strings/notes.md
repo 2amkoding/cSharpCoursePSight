@@ -1,6 +1,6 @@
 # Working w Strings
 
-##Overview
+## Overview
 
 - Strings
 - Comparing Strings
@@ -24,7 +24,7 @@ lastName = ""; //string.Empty;
 
 ### escape characters
 
-file path: "C:\\Documents\\readme.txt" <- cool for cli stuff
+cd 06-Class\&Objects
 string verbatimFilePath = @"C:\Documents\readme.txt"
 
 ### Parsing strings
