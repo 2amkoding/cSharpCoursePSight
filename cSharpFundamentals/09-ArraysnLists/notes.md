@@ -31,13 +31,13 @@ oOOoo pointers and linked lists
 
 - Syntax
 
-  - ```c#
-    List<int> employeeIds = new List<int>();
-    ```
+```c#
+List<int> employeeIds = new List<int>();
+```
 
-  ```
-
-  ```
+```c#
+List<Employee> employees = new List<Employee>();
+```
 
 - Lists are Type-safe
 - has API of Methods (employeeIds.Add(22);)
