@@ -2,7 +2,7 @@
 
 ## Overview
 
-[] dotnet dump
+[ ] dotnet dump
 
 - Writing unit tests
 
@@ -12,8 +12,9 @@
 - [xUnit CLI](https://xunit.net/docs/getting-started/v2/netcore/cmdline)
 - dotnet-dump
   > [!question]
-  > [] isPackable
-  > []coverlet.collector
+  >
+  > - [ ] isPackable
+  > - [ ]coverlet.collector
 
 #### xUnit
 
