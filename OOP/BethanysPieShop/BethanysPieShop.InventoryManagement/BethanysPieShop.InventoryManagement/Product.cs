@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace BethanysPieShop.InventoryManagement;
 
 public class Product
@@ -5,12 +7,52 @@ public class Product
    private int id;
    private string name = string.Empty; // default value 
    private string? description; // nullable
-
    private int maxItemsInStock = 0;
+
+   public int Id
+   {
+      get { return id; }
+      set { id = value; }
+   }
+
+   public string Name
+   {
+      get { return name; }
+      set { name = value.Length > 50 ? value[..50] : value; }
+   }
+
+   public string? Description
+   {
+      get { return description; }
+      set
+      {
+         if (value == null)
+         {
+            description = string.Empty;
+         }
+         else
+         {
+            description = value.Length > 250 ? value[..250] : value;
+         }
+      }
+   }
    
-   private int amountInStock = 0;
-   private bool isBelowStockThreshold = false;
-  
+   public UnitType UnitType { get; set; }
+   public int AmountInStock { get; private set; }
+   public bool IsBelowStockThreshold { get; private set; }
+
+   public Product(int id) : this(id, string.Empty)
+   {
+   }
+
+   public Product(int id, string name)
+   {
+      this.id = id;
+      this.name = name;
+   }
+   
+   
+
    public void UseProduct(int items)
    {
       if (items <= AmountInStock)
