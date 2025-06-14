@@ -63,17 +63,6 @@
 > - Performance Profiler (Plug-in)
 > - Entity Framework Core UI (Plug-in)
 >
-> ##### Rider Plug-ins
->
-> - .NET Trace Viewer
-> - Debug Helper
-> - SonarLint
-> - GitToolBox
-> - Sequence Diagram
-> - Entity Framework UI
-> - Performance & Analysis (Plug-in)
-> - HTTP Client (built-in)
->
 > ##### Code Quality & Debugging
 >
 > - SonarLint(Plug-in)
@@ -88,7 +77,7 @@
 
 ##### Critical
 
-> - Start with the buil-ins
+> - Start w built-ins
 >   - Breakpoint management
 >   - Watch windows
 >   - Call stack Inspection
