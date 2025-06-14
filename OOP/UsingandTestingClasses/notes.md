@@ -95,3 +95,21 @@ public class Product
   }
 }
 ```
+
+### Writing a Unit Test
+
+```c#
+A-A-A Method
+
+public void IncreaseStock_CorrectAmountInStock()
+{
+  //Arrange
+  Product product = new product();
+
+  //Act
+  product.IncreaseStock(100);
+
+  //Assert
+  Assert.Equal(100, product.AmountInStock);
+}
+```
