@@ -61,3 +61,19 @@ Product(1, "unkown product", "general")
 └── this.Name = "unkown product"
 └── this.Category = "general"
 ```
+
+### Object Initialization
+
+```c#
+public class Product
+{
+  public int Id { get; set; }
+  public string Name { get; set; }
+
+  public Product(){}
+
+}
+
+---
+Product p = new(){ Name = "eggs", Id= "1" }
+```
