@@ -77,3 +77,21 @@ public class Product
 ---
 Product p = new(){ Name = "eggs", Id= "1" }
 ```
+
+### Static Members
+
+- Objects get their own copy of data of a class
+- Data can also be stored at class level
+- aka static data: children objects can access Parent Class static member
+
+```c#
+public class Product
+{
+  public static int StockTreshold = 5;
+  public static void ChangeStockTreshold(int ChangeStockTreshold)
+  {
+    //Static data exists without object creation,
+    //Static method can access static data wo instantiation
+  }
+}
+```
