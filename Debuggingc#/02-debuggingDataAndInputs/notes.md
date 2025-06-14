@@ -89,3 +89,27 @@
 > - SonarLint
 > - Entity Framework UI
 > - Memory Profiler
+
+- debug.Assert() at the beg or end of methods
+  are great hints to what the codeblock should do
+- [System.Diagnostics.DebuggerHidden] to auto step-over block of code
+  while debugging
+- [DebuggerDisplay("ID:{ID}, Date:{DateIncurred.ToString("\d\")}, Desc:{Description, }")]
+
+  - Better performance:
+    @Top of block [DebuggerDisplay("{DebuggerDisplay}, nq")]
+    // block of code
+    private string DebugDisplay
+    {
+    get
+    {
+    return string.Format("ID: {0}, Date:{2}..."), ID, DateIncurred, Description, ..)
+    }
+    }
+
+  - iLogger
+    - Abstracts logging implementation
+    - Built-in Logging Providers
+    - EventLog
+    - EventSource
+    - Azure friendly
