@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Samples.Debugging.Web.WebUI.props" />
-</Project>
