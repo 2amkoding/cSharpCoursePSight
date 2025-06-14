@@ -35,5 +35,5 @@ public class BoxedProduct : Product
 
 ### Inheritance and Constructor flow
 
-Product bbl = new BoxedProduct(); \n
+Product bbl = new BoxedProduct();  
 constructor flow: loads Product constructor -> then Boxed Product constructor
