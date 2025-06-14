@@ -41,3 +41,8 @@
 
 > [!tldr]
 > Intermittent Errors
+
+> [!BUG]
+> SQL Server LocalDB unavailable for mac
+> Updated DB connection to SQLite
+> Website runs but on unsecure connection
