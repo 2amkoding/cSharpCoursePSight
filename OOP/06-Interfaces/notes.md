@@ -65,9 +65,61 @@ public class Order: ISaveable, Iloggable
 IEnumerable, IDisposable, ICloneable, IComparable, IList/ICollection, ISerializable  
 +MORE
 
-## Polymorphism
+## Polymorphism + interface
 
 You can use an interface reference to point to an object of a class that implements that interface  
 On that reference you can invoke the methods defined in that interface  
-thus enabling polymorphic behavior  
-Product -> is-A -> iSaveable
+thus enabling polymorphic behavior
+
+Product -> issA -> iSaveable  
+Product can now be addressed as an iSaveable Reference
+
+```c#
+//ProductRepository.cs
+---
+
+public SaveToFile(List<iSaveable> saveable) // List of ISaveables so it can reference any of the objects that impelment the interface
+{
+  StringBuilder sb = new StringBuilder(); //
+  string path = $"{directory}{productsFileName}";
+
+  foreach (var item in saveable)
+  {
+    sb.Append(item.ConvertToStringForSaving()); // this method is inherited from the interface
+    sb.Append(Enviornment.NewLine);
+  }
+
+
+  File.WriteAllText(path, sb.ToString());
+
+  Console.ForegroundColor - ConsoleColor.Green;
+  Console.WriteLine("Saved items sucesffully");
+  Console.ResetColor();
+}
+---
+
+---
+//Utilities.cs
+
+private static void SaveAllData()
+{
+  ProductRepository productRepository = new (); // References Product objects which doesnt implement
+    // SaveToFile method requires ISaveable objects.
+
+  List<iSaveable> saveables = new List<ISaveable>(); //Creates a List of References that point
+                                                     // towards the object that implement ISaveable
+
+  foreach (var item in inventory)
+  {
+    if (item is ISaveable) // // if the objects in the inventory and heap implements ISaveable,
+    {
+      saveables..Add(item as iSaveable);
+    }
+  }
+
+  ProductRepository.SaveToFIle(saveables);
+
+  Console.ReadLine();
+  ShowMainMenu();
+}
+```
