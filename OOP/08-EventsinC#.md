@@ -1,4 +1,4 @@
-# Events and Deligates
+# Events and Delegates
 
 ## What data problem does it solve?
 
@@ -11,7 +11,7 @@ follows the Open/Closed Principle.
 
 You can add new Application functions without modifying existing Classes/Objects.
 
-## How does it relate to Deligates?
+## How does it relate to Delegates?
 
-Events are children derived from Class.Delegate
+Events are children derived from Class.Delegate  
 Events come out-the-box with access control over data shared.
