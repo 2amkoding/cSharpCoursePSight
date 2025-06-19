@@ -68,7 +68,6 @@ class OrderItem{
   ToString()
   }
 
-
 class Currency{
 <<enum>>
 Dollar
@@ -89,7 +88,38 @@ Product --> UnitType
 Order --|> OrderItem
 ```
 
-```c#
-public class Products{}
+### Abstraction and Encapsulation
 
+```c#
+public class Products
+{
+  protected string description;
+  private int id;
+  protected int maxItemsInStock;
+  protected string name;
+  protected in AmountInStock;
+  protected bool IsBelowStockTreshold;
+  protected Unittype unitType;
+
+  CreateSimpleProductRepresentation()
+  DecreaseStock()
+  DisplayDetailsFull()
+  DisplayDetailsShort()
+  IncreaseStock()
+  Log()
+  Product()
+  UpdateLowStock()
+  UseProduct()
+
+}
+
+```
+
+### Composition
+
+```c#
+Price()
+{
+
+}
 ```
