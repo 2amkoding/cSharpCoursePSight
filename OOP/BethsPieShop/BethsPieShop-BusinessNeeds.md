@@ -21,7 +21,72 @@
 
 ```mermaid
 classDiagram
-class Products
+
+class Product{
+   description
+   id
+   maxItemsInStock
+   name
+   AmountInStock
+   description
+   Id
+   IsBelowStockTreshold
+   Name
+   Price
+   UnitType
+   CreateSimplkeProductRepresentation
+   DecreaseStock
+   DisplayDetailsFull(+1 overloaded)
+   DisplayDetailsShort()
+   IncreaseStock(+overloaded)
+   Log()
+   Product(+overloaded)
+   UpdateLowStock()
+   UseProduct()
+  }
+
+class Price{
+  Currency
+  ItemPRice
+  ToString()
+  }
+
+class Order{
+  Fulfilled
+  Id
+  OrderFufillment
+  OrderItems
+  Order()
+  ShowOrderDet()
+  }
+
+class OrderItem{
+  AmountOrdered
+  Id
+  ProductId
+  ProductName
+  ToString()
+  }
+
+
+class Currency{
+<<enum>>
+Dollar
+Euro
+Pound
+}
+
+class UnitType{
+  <<enum>>
+  PerItem
+  PerBox
+  PerKg
+  }
+
+Product --|> Price
+Price --> Currency
+Product --> UnitType
+Order --|> OrderItem
 ```
 
 ```c#
