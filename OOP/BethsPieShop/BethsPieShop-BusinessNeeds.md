@@ -115,6 +115,45 @@ public class Products
 
 ```
 
+#### Cool Stuff
+
+C# has a thing called "auto-properties".  
+in Java, you have to "manual everything"(or use lombok),
+
+```java
+public clas Product {
+  private int id;
+  private String name;\
+
+  public int getId(){
+    return id;
+  }
+  public void setId(int id) {
+  this.name = name;
+}
+//setter getter for all other fields..
+}
+```
+
+But with C#s auto-properties, you can forego manually writing fields  
+ (if it's properties don't require more complex logic / validation, etc.)
+
+```c#
+public class Product
+{
+  public String Name { get; set; }
+  public int Id {get; private set; }
+}
+```
+
+- Encapsulation  
+  So with C#s auto-properties, it creates backing fields which are (private)  
+  with public access (properties). This uses the Encapsulation Principle.
+
+- Analogy  
+  Properties = Getters/Setters for Fields  
+  Constructors = A Factory to create objects
+
 ### Composition
 
 ```c#
