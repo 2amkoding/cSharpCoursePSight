@@ -6,13 +6,12 @@ namespace delegateEvents
 {
     public class Product
     {
-        private int id;
         private string name = string.Empty;
         private string? description;
 
         private int maxItemsInStock = 0;
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         public string Name
         {

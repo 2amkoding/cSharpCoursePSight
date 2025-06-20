@@ -90,34 +90,7 @@ Order --|> OrderItem
 
 ### Abstraction and Encapsulation
 
-```c#
-public class Products
-{
-  protected string description;
-  private int id;
-  protected int maxItemsInStock;
-  protected string name;
-  protected in AmountInStock;
-  protected bool IsBelowStockTreshold;
-  protected Unittype unitType;
-
-  CreateSimpleProductRepresentation()
-  DecreaseStock()
-  DisplayDetailsFull()
-  DisplayDetailsShort()
-  IncreaseStock()
-  Log()
-  Product()
-  UpdateLowStock()
-  UseProduct()
-
-}
-
-```
-
-#### Cool Stuff
-
-C# has a thing called "auto-properties".  
+C# has a thing called "auto-properties".
 in Java, you have to "manual everything"(or use lombok),
 
 ```java
