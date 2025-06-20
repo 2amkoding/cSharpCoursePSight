@@ -16,6 +16,35 @@ namespace delegateEvents
         private int amountInStock = 0;
         private bool isBelowStockThreshold = false;
 
+        public int Id { get; set; }
+
+        public string Name
+        {
+            get => name;
+            set => name = value.Length > 50 ? value[..50] : value;
+        }
+
+        public string? Description
+        {
+            get => description;
+            set
+            {
+                if (value == null)
+                {
+                    description = string.Empty;
+                }
+                else
+                {
+                    description = value.Length > 250 ? value[..250] : value;
+                }
+
+            }
+        }
+
+        public UnitType UnitType { get; set; }
+        public int AmountInStock { get; private set; }
+        public bool IsBelowStockThreshold { get; private set; }
+
         public void UseProduct(int items)
         {
             if (items <= amountInStock)
