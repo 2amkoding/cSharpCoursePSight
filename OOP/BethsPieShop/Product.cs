@@ -12,10 +12,6 @@ namespace delegateEvents
 
         private int maxItemsInStock = 0;
 
-        private UnitType unitType;
-        private int amountInStock = 0;
-        private bool isBelowStockThreshold = false;
-
         public int Id { get; set; }
 
         public string Name
@@ -47,15 +43,15 @@ namespace delegateEvents
 
         public void UseProduct(int items)
         {
-            if (items <= amountInStock)
+            if (items <= AmountInStock)
             {
-                amountInStock -= items;
+                AmountInStock -= items;
                 UpdateLowStock();
-                Log($"Amount in stock updated. Now {amountInStock} items in stock.");
+                Log($"Amount in stock updated. Now {AmountInStock} items in stock.");
             }
             else
             {
-                Log($"Not enough items in stock for {CreateSimpleProductRepresentation()}. {amountInStock} available but {items} requested.");
+                Log($"Not enough items in stock for {CreateSimpleProductRepresentation()}. {AmountInStock} available but {items} requested.");
             }
         }
 
@@ -63,18 +59,18 @@ namespace delegateEvents
 
         public void IncreaseStock()
         {
-            amountInStock++;
+            AmountInStock++;
         }
 
         private void DecreaseStock(int items, string reason)
         {
-            if (items <= amountInStock)
+            if (items <= AmountInStock)
             {
-                amountInStock -= items;
+                AmountInStock -= items;
             }
             else
             {
-                amountInStock = 0;
+                AmountInStock = 0;
             }
 
             updateStock();
@@ -83,16 +79,16 @@ namespace delegateEvents
 
         public string DisplayDetailsShort()
         {
-            return $"{id}. {name} \n{amountInStock} items in stock";
+            return $"{id}. {name} \n{AmountInStock} items in stock";
         }
 
         public string DisplayDetailsLong()
         {
             StringBuilder sb = new();
             //ToDo: add price here too
-            sb.Append($"{id} {name} \n{description}\n{amountInStock} item(s) in stock");
+            sb.Append($"{id} {name} \n{description}\n{AmountInStock} item(s) in stock");
 
-            if (isBelowStockTreshold)
+            if (IsBelowStockTreshold)
             {
                 sb.Append("\n!!STOCK LOW!!");
             }
@@ -102,9 +98,9 @@ namespace delegateEvents
 
         public void UpdateLowStock()
         {
-            if (amountInStock < 10)
+            if (AmountInStock < 10)
             {
-                isBelowStockThreshold = true;
+                IsBelowStockThreshold = true;
             }
         }
 
