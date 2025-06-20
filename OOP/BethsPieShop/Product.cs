@@ -40,6 +40,28 @@ namespace delegateEvents
         public int AmountInStock { get; private set; }
         public bool IsBelowStockThreshold { get; private set; }
 
+        public Product(int id) : this(id, string.Empty)
+        {
+        }
+
+        public Product(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public Product(int id, string name, string? description, UnitType unitType, int maxAmountInStock)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            UnitType = unitType;
+
+            maxItemsInStock = maxAmountInStock;
+
+            UpdateLowStock();
+        }
+
         public void UseProduct(int items)
         {
             if (items <= AmountInStock)
@@ -61,6 +83,25 @@ namespace delegateEvents
             AmountInStock++;
         }
 
+        public void IncreaseStock(int amount)
+        {
+            int newStock = AmountInStock + amount;
+
+            if (newStock <= maxItemsInStock)
+            {
+                AmountInStock += amount;
+            }
+            else
+            {
+                AmountInStock = maxItemsInStock;
+                Log($"{CreateSimpleProductRepresentation} stock overflow. {newStock - AmountInStock} items(s) ordered that couldn't be stored.");
+            }
+            if (AmountInStock > 10)
+            {
+                IsBelowStockThreshold = false;
+            }
+        }
+
         private void DecreaseStock(int items, string reason)
         {
             if (items <= AmountInStock)
@@ -78,20 +119,33 @@ namespace delegateEvents
 
         public string DisplayDetailsShort()
         {
-            return $"{id}. {name} \n{AmountInStock} items in stock";
+            return $"{Id}. {name} \n{AmountInStock} items in stock";
         }
 
         public string DisplayDetailsLong()
         {
-            StringBuilder sb = new();
-            //ToDo: add price here too
-            sb.Append($"{id} {name} \n{description}\n{AmountInStock} item(s) in stock");
+            // StringBuilder sb = new();
+            // //ToDo: add price here too
+            // sb.Append($"{Id} {name} \n{description}\n{AmountInStock} item(s) in stock");
+            //
+            // if (IsBelowStockTreshold)
+            // {
+            //     sb.Append("\n!!STOCK LOW!!");
+            // }
 
-            if (IsBelowStockTreshold)
+            // return sb.ToString();
+            return DisplayDetailsLong("");
+        }
+
+        public string DisplayDetailsLong(string extraDetails)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{Id} {Name} \n{Description}\n{AmountInStock} item(s) in stock");
+            sb.Append(extraDetails);
+            if (IsBelowStockThreshold)
             {
                 sb.Append("\n!!STOCK LOW!!");
             }
-
             return sb.ToString();
         }
 
@@ -110,7 +164,7 @@ namespace delegateEvents
 
         public string CreateSimpleProductRepresentation()
         {
-            return $"Product {id} ({name}";
+            return $"Product {Id} ({name}";
         }
     }
 }

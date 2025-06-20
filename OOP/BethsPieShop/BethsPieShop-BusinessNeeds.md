@@ -1,11 +1,13 @@
 ## Concept Goals
 
 - Abstraction
+- Encapsulation
 - Enums
 - Records
 - interface
 - Delegates
 - CLI
+- vimMotions W(-\_-)W
 
 ## Business Needs
 
@@ -90,8 +92,11 @@ Order --|> OrderItem
 
 ### Abstraction and Encapsulation
 
+#### Creating a Class
+
 C# has a thing called "auto-properties".
-in Java, you have to "manual everything"(or use lombok),
+
+In Java, you have to "manual everything"(or use lombok),
 
 ```java
 public clas Product {
@@ -114,7 +119,11 @@ But with C#s auto-properties, you can forego manually writing fields
 ```c#
 public class Product
 {
-  public String Name { get; set; }
+  public string Name
+   {
+    get => name;
+    set => name = value.Length > 50 ? value[..50] : value;
+   }
   public int Id {get; private set; }
 }
 ```
@@ -126,6 +135,70 @@ public class Product
 - Analogy  
   Properties = Getters/Setters for Fields  
   Constructors = A Factory to create objects
+
+#### Constructors
+
+```c#
+//constructor
+public Product(int id, string name)
+{
+  Id = id;
+  Name = name;
+}
+```
+
+#### Overloading: Methods, Constructors
+
+```c#
+//Method ex
+public void IncreaseStock()
+{
+  AmountInStock++;
+}
+
+public void IncreaseStock(int amount)
+{
+  // implement method
+}
+
+//Constructor ex
+public Product (int id) : this(id, string.Empty){}
+
+public Product (int id, string name)
+{
+  Id = id;
+  Name = name;
+}
+
+```
+
+##### Method Signature Matching
+
+```c#
+
+        public string DisplayDetailsLong()
+        {
+            return DisplayDetailsLong("");
+        }
+
+        public string DisplayDetailsLong(string extraDetails)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{Id} {Name} \n{Description}\n{AmountInStock} item(s) in stock");
+            sb.Append(extraDetails);
+            if (IsBelowStockThreshold)
+            {
+                sb.Append("\n!!STOCK LOW!!");
+            }
+            return sb.ToString();
+        }
+```
+
+Whats cool about this is:  
+call: product.DisplayDetailsLong()  
+returns: DisplayDetailsLong("");  
+which calls: DisplayDetailsLong(string extraDetails)  
+it appends with ""(nothing)
 
 ### Composition
 
