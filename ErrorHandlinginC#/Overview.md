@@ -135,7 +135,195 @@ this pattern."
 
 ## Catching, Throwing, and Rethrowing Exceptions
 
-- and advanced catching using exception filters
+### Throwing Exceptions from Expressions
+
+```c#
+public class Calculator
+{
+  public int Calculate(int n1, int n2, string operation)
+  {
+    //ArgumentNullException.ThrowIfNull(operation);
+    string nonNullOperation =
+      operation ?? throw new ArgumentNullException(nameof(operation));
+
+    if(nonNullOperation == "/")
+    {
+      return Divide(n1, n2);
+    }
+    else
+    {
+      throw new ArgumentOutOfRangeException(nameof(operation),
+          "The mathematical operator is not supported."):
+    }
+  }
+}
+
+//switch expressions
+public class Calculator
+{
+  public int Calculate(int n1, in2, string operation) => opeartion switch
+  {
+    "/" => Divide(n1, n2),
+    "+" => Add(n1, n2),
+  };
+
+  private int Divide(int n, int divisor) => n/divisor;
+  private int Add(int n1, int n2) => n1 + n2;
+}
+```
+
+### Catching Different Exception Types w Multiple Catch Blocks
+
+```c#
+//Program.cs
+//... omitted code
+try
+{
+    var calculator = new Calculator();
+    int result = calculator.Calculate(number1, number2, operation);
+    DisplayResult(result);
+}
+catch (ArgumentNullException ex)
+{
+    // Log.Error(ex);
+    WriteLine($"Operation was not provided. {ex}");
+}
+catch (ArgumentOutOfRangeException ex)
+{
+    // Log.Error(ex);
+    WriteLine($"Operation is not supported. {ex}");
+}
+catch (Exception ex)
+{
+    WriteLine($"Sorry, something went wrong. {ex}");
+}
+```
+
+### Understanding the Finally Block
+
+### Rethrowing Exceptions and Preserving the Stack Trace
+
+sometimes you want to catch an exception, perform some action, but continue  
+the exception bubble up the stack.
+
+```c#
+// new syntax:just "throw;"
+namespace ConsoleCalculator;
+
+public class Calculator
+{
+    public int Calculate(int number1, int number2, string operation)
+    {
+        string nonNullOperation =
+            operation ?? throw new ArgumentNullException(nameof(operation));
+
+        if (nonNullOperation == "/")
+        {
+            try
+            {
+                return Divide(number1, number2);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("...logging...");
+                // Log.Error(ex);
+                throw;
+            }
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException(nameof(operation),
+                "The mathematical operator is not supported.");
+        }
+    }
+
+    private int Divide(int number, int divisor) => number / divisor;
+}
+```
+
+### Catchign and Wrapping Exceptions
+
+```c#
+        if (nonNullOperation == "/")
+        {
+            try
+            {
+                return Divide(number1, number2);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("...logging...");
+                // Log.Error(ex);
+                //throw;
+                throw new ArithmeticException("An error occured during calculation.", ex);
+            }
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException(nameof(operation),
+                "The mathematical operator is not supported.");
+        }
+    }
+```
+
+> [!NOTE]  
+> ArithmeticException.DivideByZeroException  
+> Inheritance and Catch TD Hierarchy of speicifc to least
+
+```c#
+try
+{
+  return Divide(n1, n2);
+}
+catch (DivideByZeroException ex)
+{
+  //logic
+}
+catch(ArithmeticException ex)
+{
+//logic
+}
+```
+
+### Filtering Catch Blocks with Exception Filters
+
+C#6 and up  
+keyword: when
+
+```c#
+//Program.cs
+try
+{
+    var calculator = new Calculator();
+    int result = calculator.Calculate(number1, number2, operation);
+    DisplayResult(result);
+}
+catch (ArgumentNullException ex) when (ex.ParamName == "operation")
+{
+    // Log.Error(ex);
+    WriteLine($"Operation was not provided. {ex}");
+}
+catch (ArgumentNullException ex)
+{
+    // Log.Error(ex);
+    WriteLine($"An argument was null. {ex}");
+}
+catch (ArgumentOutOfRangeException ex)
+{
+    // Log.Error(ex);
+    WriteLine($"Operation is not supported. {ex}");
+}
+catch (Exception ex)
+{
+    WriteLine($"Sorry, something went wrong. {ex}");
+}
+finally
+{
+    WriteLine("...finally...");
+}
+```
+
+### Global Unhandled Exception Handling
 
 ## Creating and Using Custom Exceptions
 
