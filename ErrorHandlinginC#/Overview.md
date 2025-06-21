@@ -325,6 +325,8 @@ finally
 
 ### Global Unhandled Exception Handling
 
+currentAppDomain.UnhandledException
+
 ## Creating and Using Custom Exceptions
 
 ## Write Automated Tests for code that throws exceptions
