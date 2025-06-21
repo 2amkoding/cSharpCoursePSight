@@ -90,7 +90,7 @@ Product --> UnitType
 Order --|> OrderItem
 ```
 
-### Abstraction and Encapsulation
+## Abstraction and Encapsulation
 
 #### Creating a Class
 
@@ -187,24 +187,37 @@ public Product (int id, string name)
             sb.Append($"{Id} {Name} \n{Description}\n{AmountInStock} item(s) in stock");
             sb.Append(extraDetails);
             if (IsBelowStockThreshold)
-            {
-                sb.Append("\n!!STOCK LOW!!");
+            {   sb.Append("\n!!STOCK LOW!!");
             }
             return sb.ToString();
         }
 ```
 
 Whats cool about this is:  
-call: product.DisplayDetailsLong()  
-returns: DisplayDetailsLong("");  
-which calls: DisplayDetailsLong(string extraDetails)  
-it appends with ""(nothing)
+Calling: product.DisplayDetailsLong()  
+Returns: DisplayDetailsLong("");  
+Which Calls: DisplayDetailsLong(string extraDetails)  
+and appends with ""(nothing)
 
-### Composition
+#### "This" keyword
+
+"this" references the current instance of the class.
 
 ```c#
-Price()
+public class Product
 {
+  this.Id = id;//this Objects id
+  this.Name = name;//this Objects name
+}
+```
 
+## Composition
+
+"has-a" relation.
+
+```c#
+public class Price()
+{
+  public Currency Currency { get; set; }// Price has a currency
 }
 ```

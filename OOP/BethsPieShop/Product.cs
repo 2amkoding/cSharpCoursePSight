@@ -40,6 +40,8 @@ namespace delegateEvents
         public int AmountInStock { get; private set; }
         public bool IsBelowStockThreshold { get; private set; }
 
+        public Price Price { get; set; }
+
         public Product(int id) : this(id, string.Empty)
         {
         }
@@ -50,11 +52,12 @@ namespace delegateEvents
             Name = name;
         }
 
-        public Product(int id, string name, string? description, UnitType unitType, int maxAmountInStock)
+        public Product(int id, string name, string? description, Price price, UnitType unitType, int maxAmountInStock)
         {
             Id = id;
             Name = name;
             Description = description;
+            Price = price;
             UnitType = unitType;
 
             maxItemsInStock = maxAmountInStock;
@@ -76,7 +79,6 @@ namespace delegateEvents
             }
         }
 
-        //price (come back to) 
 
         public void IncreaseStock()
         {
@@ -119,7 +121,7 @@ namespace delegateEvents
 
         public string DisplayDetailsShort()
         {
-            return $"{Id}. {name} \n{AmountInStock} items in stock";
+            return $"{Id}. {Name} \n{AmountInStock} items in stock";
         }
 
         public string DisplayDetailsLong()
@@ -140,7 +142,7 @@ namespace delegateEvents
         public string DisplayDetailsLong(string extraDetails)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{Id} {Name} \n{Description}\n{AmountInStock} item(s) in stock");
+            sb.Append($"{Id} {Name} \n{Description}\n{Price}\n{AmountInStock} item(s) in stock");
             sb.Append(extraDetails);
             if (IsBelowStockThreshold)
             {
@@ -149,7 +151,7 @@ namespace delegateEvents
             return sb.ToString();
         }
 
-        public void UpdateLowStock()
+        private void UpdateLowStock()
         {
             if (AmountInStock < 10)
             {
@@ -157,12 +159,12 @@ namespace delegateEvents
             }
         }
 
-        public void Log(string message)
+        private void Log(string message)
         {
             Console.WriteLine(message);
         }
 
-        public string CreateSimpleProductRepresentation()
+        private string CreateSimpleProductRepresentation()
         {
             return $"Product {Id} ({name}";
         }
