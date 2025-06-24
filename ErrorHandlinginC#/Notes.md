@@ -329,4 +329,24 @@ currentAppDomain.UnhandledException
 
 ## Creating and Using Custom Exceptions
 
+3 standard constructors + properties  
+Inherit from SystemException:w
+
+```c#
+private const DefaultMessage = "msg here"
+
+public NameofCustomException() : base(DefaultMessage) {}
+
+public NameofCustomException(string message) : base(message){}
+
+public NameofCustomException(Exception InnerException) : base(DefaultMessage, InnerException)
+
+public NameofCustomException(string message, Exception InnerException) : base(message, InnerException){}
+```
+
+#### ALternatives to custom exceptions
+
+use an IDictionary, which can be faster than hastables  
+with under 10 items
+
 ## Write Automated Tests for code that throws exceptions
