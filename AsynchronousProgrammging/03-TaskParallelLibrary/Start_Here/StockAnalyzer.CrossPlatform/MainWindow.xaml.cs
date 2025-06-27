@@ -9,11 +9,14 @@ using StockAnalyzer.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Avalonia.Threading;
 
 namespace StockAnalyzer.CrossPlatform;
 
@@ -50,13 +53,31 @@ public partial class MainWindow : Window
     private static string API_URL = "https://ps-async.fekberg.com/api/stocks";
     private Stopwatch stopwatch = new Stopwatch();
 
-    private async void Search_Click(object sender, RoutedEventArgs e)
+    private void Search_Click(object sender, RoutedEventArgs e)
     {
         try
         {
             BeforeLoadingStockData();
 
-            await GetStocks();
+            //await GetStocks();
+            Task.Run(() =>
+            {
+
+                var lines = File.ReadAllLines("StockPrices_Small.csv");
+                var data = new List<StockPrice>();
+
+                foreach(var line in lines.Skip(1))
+                {
+                    var price = StockPrice.FromCSV(line);
+                    data.Add(price);
+                }
+
+                Dispatcher.Invoke(() =>
+                {
+
+                    Stocks.ItemsSource = data.Where(sp => sp.Identifier == StockIdentifier.Text);
+                });
+            });
         }
         catch (Exception ex)
         {
