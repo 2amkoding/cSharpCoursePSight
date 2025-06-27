@@ -56,3 +56,13 @@ private async Task GetStocks()
   }
 }
 ```
+
+## Summary
+
+- Best Practices:
+- Always use async and await together
+- Always return a Task from an asynchronous method
+- Always await an asynchronous method to validate the operation
+- use async and await all the way up the chain
+- Never use async void unless its an event handler or delegate
+- Never block an asynchronous operation by calling Result or Wait()
