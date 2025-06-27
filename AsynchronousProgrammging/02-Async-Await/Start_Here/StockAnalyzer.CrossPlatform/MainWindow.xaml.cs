@@ -53,22 +53,27 @@ public partial class MainWindow : Window
     {
         BeforeLoadingStockData();
 
-        var client = new WebClient();
+        var getStocksTask = GetStocks();
 
-        var content = client.DownloadString($"{API_URL}/{StockIdentifier.Text}");
+        await getStocksTask;
 
-        // Simulate that the web call takes a very long time
-        Thread.Sleep(10000);
-
-        var data = JsonConvert.DeserializeObject<IEnumerable<StockPrice>>(content);
-
-        // This is the same as ItemsSource in WPF used in the course videos
-        Stocks.Items = data;
 
         AfterLoadingStockData();
     }
 
-
+    private async Task GetStocks()
+    {
+        try
+        {
+            var store = new DataStore();
+            var responseTask = store.GetStockPrices(StockIdentifier.Text);
+            Stocks.ItemsSource = await responseTask;
+        }
+        catch (Exception ex)
+        {
+            Notes.Text = ex.Message;
+        }
+    }
 
 
 
